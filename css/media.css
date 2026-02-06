@@ -1,0 +1,45 @@
+
+/* Responsive styles */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 10px;
+        min-height: 100vh;
+        width: 100vw;
+        overflow-y: auto;
+    }
+    .content {
+        max-width: 100%;
+        text-align: center;
+    }
+    .profile-img {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 15px;
+    }
+    .container {
+        padding: 10px 2px;
+        gap: 50px;
+        min-height: 100vh;
+        width: 100vw;
+        overflow-y: auto;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    .role {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+    .profile-img img {
+        max-width: 140px;
+    }
+    .desc {
+        font-size: 0.95rem;
+    }
+}

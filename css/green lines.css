@@ -1,0 +1,98 @@
+
+/* Green lines */
+.green-line {
+    position: absolute;
+    height: 4px;
+    background: #7fff00;
+    border-radius: 2px;
+    z-index: 2;
+}
+.green-line-top {
+    top: 30px;
+    left: 30px;
+    width: 25vw; /* Responsive width */
+    min-width: 120px;
+    max-width: 500px;
+}
+
+.green-line-bottom {
+    bottom: 30px;
+    right: 30px;
+    left: auto;
+    width: 15vw; /* Responsive width */
+    min-width: 80px;
+    max-width: 300px;
+}
+
+/* Chevrons: right side */
+.chevrons {
+    position: absolute;
+    bottom: 100px;
+    right: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.chevrons svg,
+.chevrons-left svg {
+    width: 100px;
+    height: 100px;
+}
+
+/* Chevrons: left side */
+.chevrons-left {
+    position: absolute;
+    bottom: 600px;
+    left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.chevrons svg,
+.chevrons-left svg {
+    width: 100px;
+    height: 100px;
+}
+
+/* Typography & components */
+.hello {
+    color: #7fff00;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin: 0 0 20px 0;
+    letter-spacing: 2px;
+    word-break: break-word;
+}
+
+.role {
+    display: inline-block;
+    border: 2px solid #7fff00;
+    color: #fff;
+    background: transparent;
+    padding: 10px 24px;
+    font-size: 1rem;
+    font-family: monospace;
+    font-weight: bold;
+    border-radius: 6px;
+    margin-bottom: 24px;
+    margin-top: 10px;
+    letter-spacing: 2px;
+    box-shadow: 0 0 10px #7fff0044;
+}
+
+.desc {
+    color: #ccc;
+    font-size: 1rem;
+    margin-top: 24px;
+    max-width: 400px;
+    word-break: break-word;
+}
