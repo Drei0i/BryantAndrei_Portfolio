@@ -1,46 +1,158 @@
+/* ---------- Body & Container ---------- */
 body {
     background: #111;
     color: #fff;
     font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    font-size: 16px;
-    line-height: 1.5;
     min-height: 100vh;
-    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* center vertically */
 }
 
 .container {
-    position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* center vertically */
     min-height: 100vh;
-    width: 100vw;
+    width: 100%;
     padding: 40px 20px;
     background: linear-gradient(120deg, #111 80%, #222 100%);
-    border-radius: 0;
+    gap: 160px; /* more gap to allow project hover growth */
     box-sizing: border-box;
-    flex-wrap: wrap;
-    gap: 50px;
-    margin: 0;
-    overflow: auto; /* Makes container scrollable if content overflows */
 }
 
-
-.content {
-    max-width: 500px;
-    min-width: 200px;
-    flex: 1 1 300px;
+/* ---------- Profile ---------- */
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .profile-img img {
-    width: 100%;
     max-width: 320px;
-    height: auto;
-    object-fit: cover;
+    width: 100%;
     border-radius: 50%;
     box-shadow: 0 0 30px #000a;
     display: block;
-    margin: 0 auto;
 }
+
+.content {
+    max-width: 500px;
+    text-align: center;
+}
+
+/* ---------- Projects ---------- */
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    position: relative; /* allows hover pop-up without overlap */
+}
+
+/* ---------- Project Box ---------- */
+.project-box {
+    background: #181818;
+    border: 2px solid #7fff00;
+    border-radius: 12px;
+    width: 320px;
+    overflow: hidden;
+    position: relative;
+    transition: box-shadow 0.3s ease, transform 0.35s ease;
+    transform-origin: top center; /* grow downward */
+}
+
+.project-box:hover {
+    transform: scale(1.4);
+    z-index: 2;
+    box-shadow:
+        0 0 10px #7fff00,
+        0 0 25px #7fff0066,
+        0 0 45px #7fff0033;
+}
+
+/* ---------- Video ---------- */
+.project-box video {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    transition: transform 0.35s ease;
+    margin-top: -10px; /* moves the video slightly up */
+}
+
+.project-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* align all content to top */
+    background: #181818;
+    border: 2px solid #7fff00;
+    border-radius: 12px;
+    width: 320px;
+    overflow: hidden;
+    position: relative;
+    transition: box-shadow 0.3s ease, transform 0.35s ease;
+    transform-origin: top center;
+}
+
+.project-box:hover video {
+    transform: scale(1.07);
+}
+
+/* ---------- Dropdown Description ---------- */
+.video-desc {
+    background: #111;
+    color: #7fff00;
+    text-align: center;
+    font-size: 0.95rem;
+    padding: 0 14px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+.project-box:hover .video-desc {
+    max-height: 90px;
+    padding: 12px 14px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+    .profile-info {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .project-box {
+        width: 90vw;
+        max-width: 400px;
+    }
+}
+
+/* ---------- Web Developer Box ---------- */
+.role {
+    display: inline-block; /* allow padding and border */
+    padding: 8px 16px;
+    border: 2px solid #7fff00;
+    border-radius: 8px;
+    color: #7fff00;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+/* Glow effect on hover */
+.role:hover {
+    color: #fff; /* optional: brighten text */
+    box-shadow:
+        0 0 10px #7fff00,
+        0 0 20px #7fff00,
+        0 0 30px #7fff00,
+        0 0 40px #7fff00;
+    border-color: #7fff00;
+}
+

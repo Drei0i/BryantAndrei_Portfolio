@@ -1,47 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/media.css">
-    <link rel="stylesheet" href="css/green lines.css">
-    <!-- Google Fonts for bold font -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/media.css">
+<link rel="stylesheet" href="css/green lines.css">
+<link rel="stylesheet" href="css/Typography.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <!-- Top green line -->
-        <div class="green-line green-line-top"></div>
-        
+
+<div class="container">
+    <!-- Top green line -->
+    <div class="green-line green-line-top"></div>
+
+    <!-- Profile + Info -->
+    <div class="profile-info">
+        <div class="profile-img">
+            <img src="Pictures/picture.jpg" alt="picture">
+        </div>
         <div class="content">
             <p class="hello">Hello</p>
             <h1>I'm Bryant Andrei</h1>
-            <div class="role">UI/UX DESIGNER</div>
+            <div class="role">Web Developer</div>
             <p class="desc">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
         </div>
-        <div class="profile-img">
-            <img src="Pictures/picture.jpg" alt="picture">
-        </div>
-        
-        <!-- Bottom green line -->
-        <div class="green-line green-line-bottom"></div>
-        
-      <!-- Right side chevrons (already present) -->
-<div class="chevrons">
-    <svg viewBox="0 0 50 50"><polyline points="15,30 25,20 35,30" fill="none" stroke="#7fff00" stroke-width="4"/></svg>
-    <svg viewBox="0 0 50 50"><polyline points="15,40 25,30 35,40" fill="none" stroke="#7fff00" stroke-width="4"/></svg>
-    <svg viewBox="0 0 50 50"><polyline points="15,50 25,40 35,50" fill="none" stroke="#7fff00" stroke-width="4"/></svg>
-</div>
-<!-- Left side chevrons (add this) -->
-<div class="chevrons-left">
-    <svg viewBox="0 0 50 50"><polyline points="15,20 25,30 35,20" fill="none" stroke="#7fff00" stroke-width="4"/></svg>
-    <svg viewBox="0 0 50 50"><polyline points="15,30 25,40 35,30" fill="none" stroke="#7fff00" stroke-width="4"/></svg>
-    <svg viewBox="0 0 50 50"><polyline points="15,40 25,50 35,40" fill="none" stroke="#7fff00" stroke-width="4"/></svg>
-</div>
     </div>
+
+    <!-- Projects -->
+    <div class="projects">
+        <div class="project-box">
+            <video controls poster="Pictures/thumb1.jpg">
+                <source src="videos/project1.mp4" type="video/mp4">
+              </video>
+            <div class="video-desc">
+        Project 1 description goes here. Lorem ipsum dolor sit amet.
+    </div>
+      
+        </div>
+        <div class="project-box">
+            <video controls poster="Pictures/thumb2.jpg">
+                <source src="videos/project2.mp4" type="video/mp4">
+            </video>
+            <div class="video-desc">
+        Project 2 description goes here. Lorem ipsum dasdsd
+        asdasdasdasd
+        sDasdasasdad
+        ASDASDASDAS
+        DASDASDASD
+        ADASDASDASD
+        DASDASDASolor sit amet.
+    </div>
+        </div>
+        <div class="project-box">
+            <video controls poster="Pictures/thumb3.jpg">
+                <source src="videos/project3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-desc">
+        Project 3 description goes here. Lorem ipsum dolor sit amet.
+    </div>
+        </div>
+    </div>
+
+    <!-- Bottom green line -->
+    <div class="green-line green-line-bottom"></div>
+
+    <!-- Chevrons -->
+    <div class="chevrons">
+        <svg viewBox="0 0 50 50"><polyline points="15,30 25,20 35,30" fill="none" stroke="#7fff00" stroke-width="4"/></svg>
+        <svg viewBox="0 0 50 50"><polyline points="15,40 25,30 35,40" fill="none" stroke="#7fff00" stroke-width="4"/></svg>
+        <svg viewBox="0 0 50 50"><polyline points="15,50 25,40 35,50" fill="none" stroke="#7fff00" stroke-width="4"/></svg>
+    </div>
+    <div class="chevrons-left">
+        <svg viewBox="0 0 50 50"><polyline points="15,30 25,40 35,30" fill="none" stroke="#7fff00" stroke-width="4"/></svg>
+        <svg viewBox="0 0 50 50"><polyline points="15,30 25,40 35,30" fill="none" stroke="#7fff00" stroke-width="4"/></svg>
+        <svg viewBox="0 0 50 50"><polyline points="15,30 25,40 35,30" fill="none" stroke="#7fff00" stroke-width="4"/></svg>
+    </div>
+</div>
+
 </body>
 </html>

@@ -1,0 +1,34 @@
+/* ---------- Typography ---------- */
+.hello { color: #7fff00; font-size: 1.2rem; margin-bottom: 10px; font-weight: bold; letter-spacing: 2px; }
+h1 { font-size: 2.2rem; font-weight: 900; margin: 0 0 20px; letter-spacing: 2px; word-break: break-word; }
+.role {
+    display: inline-block;
+    border: 2px solid #7fff00;
+    color: #fff;
+    background: transparent;
+    padding: 10px 24px;
+    font: bold 1rem monospace;
+    border-radius: 6px;
+    margin: 10px 0 24px;
+    letter-spacing: 2px;
+    box-shadow: 0 0 10px #7fff0044;
+}
+.desc { color: #ccc; font-size: 1rem; margin-top: 24px; max-width: 400px; word-break: break-word; }
+/* ---------- Hello & Role Glow ---------- */
+.hello,
+.role {
+    color: #7fff00; /* your green color */
+    transition: text-shadow 0.3s ease, color 0.3s ease;
+    cursor: default; /* optional, makes it feel interactive */
+}
+
+/* Glow on hover */
+.hello:hover,
+.role:hover {
+    text-shadow:
+        0 0 5px #7fff00,
+        0 0 10px #7fff00,
+        0 0 20px #7fff00,
+        0 0 30px #7fff00;
+    color: #fff; /* optional: slightly brighten text */
+}
