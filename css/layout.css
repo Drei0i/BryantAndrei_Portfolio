@@ -1,158 +1,1144 @@
-/* ---------- Body & Container ---------- */
+html, body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+}
 body {
-    background: #111;
-    color: #fff;
-    font-family: 'Roboto', Arial, sans-serif;
-    margin: 0;
+    position: relative;
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* center vertically */
 }
 
+/* ---------- Global Section Spacing ---------- */
+#home,
+#profile,
+#projects,
+#contact {
+    padding: 120px 20px 100px;  /* top | left-right | bottom */
+    box-sizing: border-box;
+}
+
+/* Smaller screens */
+@media (max-width: 768px) {
+    #home,
+    #profile,
+    #projects,
+    #contact {
+        padding: 100px 20px 80px;
+    }
+}
+
+
+/* ---------- Main Sections Spacing ---------- */
+
+
+#contact {
+    min-height: 100vh;
+     background: transparent;
+}
+
+/* Smaller screens */
+@media (max-width: 768px) {
+    #home,
+    #profile,
+    #projects,
+    #contact {
+        padding: 100px 15px 60px; /* slightly tighter */
+    }
+}
+
+/* Prevent content clipping */
+.container,
+.profile-section,
+.profile-info {
+    overflow: visible !important;
+}
+
+/* ---------- Body & Container ---------- */
+body {
+    font-family: "Courier New", Courier, monospace;
+    margin: 0;
+     background: transparent;
+    color: #fff;
+    scroll-behavior: smooth;
+}
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* center vertically */
-    min-height: 100vh;
     width: 100%;
-    padding: 40px 20px;
-    background: linear-gradient(120deg, #111 80%, #222 100%);
-    gap: 160px; /* more gap to allow project hover growth */
+     padding: 0 20px 40px;
+    background: transparent;
+    gap: clamp(20px, 4vw, 60px);
     box-sizing: border-box;
 }
 
-/* ---------- Profile ---------- */
-.profile-info {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    justify-content: center;
+
+
+/* ---------- Typography & Neon ---------- */
+.hello {
+    color: #7fff00 !important;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
 }
 
-.profile-img img {
-    max-width: 320px;
+
+.hello, .slide h2 {
+    color: #7fff00;
+    cursor: default;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+.hello:hover, .slide h2:hover {
+    color: #fff;
+    text-shadow: 0 0 5px #7fff00, 0 0 10px #7fff00, 0 0 20px #7fff00, 0 0 30px #7fff00;
+}
+
+h1 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin: 0 0 20px;
+    letter-spacing: 2px;
+    word-break: break-word;
+}
+
+.desc {
+     overflow: visible;
+    max-width: 100%;
+    color: #ccc;
+    font-size: 1.2rem;
+    margin-top: 24px;
+    word-break: break-word;
+    text-align: center;
+}
+
+/* ---------- Profile ---------- */
+
+
+/* ---------- Profile Info Tabs ---------- */
+
+.info-tabs {
+    text-align: center;
+    margin-top: -30px;
+}
+
+/* ---------- Profile Tabs Clean Fix (Adjusted Upward) ---------- */
+
+/* ===== FIX PROFILE SECTION ALIGNMENT ===== */
+
+#profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;   /* move content to top */
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 0px;            /* space below navbar */
+}
+
+
+/* Move whole profile content slightly higher */
+#profile .profile-content {
+    margin-top: 0;
+}
+/* Fix anchor scroll position */
+#profile {
+    scroll-margin-top: 80px;  /* match your navbar height */
+}
+
+/* Tabs */
+.tab-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 80px;   /* reduced from 40px */
+}
+
+/* Remove default button styling */
+.tab-link {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-family: "Courier New", monospace;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 8px 0;
+    position: relative;
+}
+
+/* Neon underline animation */
+.tab-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
     width: 100%;
+    height: 2px;
+    background: #7fff00;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.tab-link:hover::after,
+.tab-link.active::after {
+    transform: scaleX(1);
+}
+
+.tab-link.active {
+    color: #7fff00;
+}
+
+/* Content */
+.tab-contents {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+/* DESKTOP: Profile aligned like About Me */
+@media (min-width: 901px) {
+    .profile-section {
+        text-align: left;
+    }
+
+    @media (min-width: 901px) {
+    .profile-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 80px;
+    }
+
+    .content {
+        text-align: left;
+    }
+}
+
+
+    .profile-left,
+    .profile-right {
+        flex: 1;
+    }
+}
+
+/* ---------- Profile Image Entrance Animation ---------- */
+.profile-img {
+    flex-shrink: 0;
+    z-index: 2;
+    opacity: 0;
+    position: relative;           /* keeps the image within flow */
+    overflow: visible;            /* prevents cutting off */
+    animation: profileEnter 1.2s ease-out forwards;
+    animation-delay: 0.4s;
+}
+
+/* Keyframes for entrance */
+@keyframes profileEnter {
+    from {
+        opacity: 0;
+        transform: translateY(-70px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 480px) {
+    .profile-img {
+        transform: translateY(-35px) scale(0.9);
+    }
+}
+
+/* Profile container */
+.profile-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(25px, 6vw, 70px);
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+/* Content section */
+.content {
+    width: 100%;
+    max-width: 750px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Image styling */
+.profile-img img {
+    width: clamp(140px, 30vw, 320px);
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     box-shadow: 0 0 30px #000a;
     display: block;
 }
 
-.content {
-    max-width: 500px;
-    text-align: center;
+
+/* ---------- Download CV Button ---------- */
+.role {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    border: 2px solid #7fff00;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #7fff00;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+.role a {
+    text-decoration: none;
+    color: inherit;
+}
+.role {
+    margin: 40px auto 0;
+    display: inline-flex;
+}
+
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 2rem;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+
+.profile-nav {
+    margin: 30px 0 60px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.profile-nav a {
+    color: #7fff00;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #7fff00;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.profile-nav a:hover {
+    color: #fff;
+    box-shadow: 0 0 10px #7fff00;
+}
+
+/* Profile blocks */
+.profile-block {
+    margin-bottom: 80px;
+}
+
+.profile-block h3 {
+    color: #7fff00;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+}
+
+.profile-block p {
+    color: #ccc;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* ---------- Skills, Experience, Certification Styling ---------- */
+.profile-block h3 {
+    color: #7fff00;          /* neon green title */
+    font-size: 1.6rem;       /* slightly bigger title if needed */
+    margin-bottom: 5px;      /* reduce space below title */
+    margin-top: 0;           /* remove top margin to move it upward */
+}
+
+#profile ul {
+    list-style: disc;
+    padding-left: 20px;
+    font-size: 1.25rem;      /* slightly bigger font for list items */
+    margin-top: -10px;       /* move the list closer to the title */
+    line-height: 1.4;        /* spacing between items */
+}
+
+/* Slides content styling */
+#profile .slide {
+    margin-bottom: 40px;         /* space between slides */
+}
+
+#profile .slide h3 {
+    color: #7fff00;              /* neon green title */
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    text-align: center;            /* align title to left */
+}
+
+#profile .slide ul {
+    list-style-type: disc;
+    padding-left: 25px;          /* indent bullets */
+    font-size: 1.2rem;
+    line-height: 1.6;            /* spacing between items */
+    max-width: 100%;             /* wrap nicely */
+    word-break: break-word;      /* prevent overflow */
+}
+
+#profile .slide li.typing {
+    display: list-item;
+    color: #fff;                 /* bullet text color */
+    margin-bottom: 10px;         /* spacing between bullets */
+}
+
+
+.tab-content {
+    max-width: 800px;       /* text won't stretch too far */
+    margin: 0 auto;
+    text-align: left;       /* bullets align nicely */
+}
+
+
+/* Optional: bullets neon green to match typing style */
+#profile li.typing {
+    color: #ffffff;          /* text color for bullets */
+}
+
+
+.role:hover {
+    color: #fff;
+    box-shadow: 0 0 10px #7fff00, 0 0 20px #7fff00, 0 0 30px #7fff00, 0 0 40px #7fff00;
 }
 
 /* ---------- Projects ---------- */
-.projects {
+.projects-section {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
     width: 100%;
-    position: relative; /* allows hover pop-up without overlap */
+    padding: 20px;
+    align-items: flex-start;
 }
 
-/* ---------- Project Box ---------- */
+/* Individual project boxes */
 .project-box {
     background: #181818;
     border: 2px solid #7fff00;
     border-radius: 12px;
-    width: 320px;
-    overflow: hidden;
+
+    flex: 0 0 calc(33.333% - 20px); /* 🔥 EXACTLY 3 PER ROW */
+    max-width: 360px;              /* prevents stretching */
+
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.35s ease, box-shadow 0.3s ease;
+    transform-origin: center;
+    overflow: visible;
     position: relative;
-    transition: box-shadow 0.3s ease, transform 0.35s ease;
-    transform-origin: top center; /* grow downward */
 }
 
 .project-box:hover {
-    transform: scale(1.4);
+    transform: scale(1.05);
     z-index: 2;
-    box-shadow:
-        0 0 10px #7fff00,
-        0 0 25px #7fff0066,
-        0 0 45px #7fff0033;
+    box-shadow: 0 0 10px #7fff00, 0 0 25px #7fff0066, 0 0 45px #7fff0033;
 }
 
-/* ---------- Video ---------- */
-.project-box video {
+/* Video or image wrapper */
+.video-wrapper,
+.image-wrapper {  /* added for images */
+    position: relative;
     width: 100%;
-    display: block;
+    padding-top: 56.25%; /* 16:9 ratio, adjust as needed */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Videos and images */
+.video-wrapper iframe,
+.video-wrapper img,
+.image-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    object-fit: cover;  /* ⚡ makes image/video fully fill the box */
     border-radius: 8px;
     transition: transform 0.35s ease;
-    margin-top: -10px; /* moves the video slightly up */
 }
 
-.project-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* align all content to top */
-    background: #181818;
-    border: 2px solid #7fff00;
-    border-radius: 12px;
-    width: 320px;
-    overflow: hidden;
-    position: relative;
-    transition: box-shadow 0.3s ease, transform 0.35s ease;
-    transform-origin: top center;
-}
-
-.project-box:hover video {
+/* Hover zoom effect */
+.project-box:hover iframe,
+.project-box:hover img {
     transform: scale(1.07);
 }
 
-/* ---------- Dropdown Description ---------- */
+/* Description hidden by default */
 .video-desc {
-    background: #111;
-    color: #7fff00;
+    color: #ffffff;
     text-align: center;
     font-size: 0.95rem;
     padding: 0 14px;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.35s ease, padding 0.35s ease;
+    word-break: break-word;
+    white-space: normal;
+    transition: max-height 0.5s ease, padding 0.5s ease;
 }
 
+/* Show description on hover */
 .project-box:hover .video-desc {
-    max-height: 90px;
+    max-height: 500px;       /* adjust depending on your max text length */
     padding: 12px 14px;
 }
 
+
+/* Tablet */
+@media (max-width: 992px) {
+    .project-box {
+        flex: 0 0 calc(50% - 20px); /* 2 per row */
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .project-box {
+        flex: 0 0 100%; /* 1 per row */
+    }
+}
+
+
+/* ---------- Social Icons ---------- */
+.social-icons {
+    margin-top: 20px;
+}
+.social-icons a {
+    color: white;
+    font-size: 2rem;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.social-icons a:hover {
+    color: #7fff00;
+}
+/* ---------- CONTACT SECTION ---------- */
+#contact {
+    width: 100%;
+    background: transparent;    /* fully transparent to show page background */
+    min-height: 100vh;          /* full viewport height */
+    padding: 50px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;               /* text stays white for readability */
+    font-family: 'Courier New', Courier, monospace;
+
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+/* Contact form styling */
+.contact-form {
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: transparent;     /* transparent form */
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+/* Form labels */
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #7fff00;            /* neon green labels */
+    font-weight: bold;
+}
+
+/* Form inputs and textarea */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background: transparent;     /* transparent input fields */
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #7fff00;
+    box-shadow: 0 0 8px rgba(127, 255, 0, 0.7);
+    outline: none;
+}
+
+/* Submit button */
+button[type="submit"] {
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    background: transparent;      /* transparent button */
+    border: 1px solid #7fff00;   /* neon green border for visibility */
+    transition: background 0.3s, transform 0.3s;
+}
+
+button[type="submit"]:hover {
+    background: rgba(127, 255, 0, 0.1); /* subtle hover effect */
+    transform: scale(1.05);
+}
+
+/* Contact info below form */
+.contact-info {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.contact-info a {
+    color: #7fff00;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.contact-info a:hover {
+    text-shadow: 
+        0 0 5px #7fff00,
+        0 0 10px #7fff00,
+        0 0 20px #7fff00,
+        0 0 30px #7fff00;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    #contact {
+        padding: 30px 15px;
+        min-height: 100vh;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+    }
+}
+
+
+/* Popup overlay */
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5); /* semi-transparent so gradient shows */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+/* Popup box */
+.popup-box {
+    background: rgba(24, 24, 24, 0.85); /* semi-transparent */
+    color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    width: 90%;
+    max-width: 360px;
+    box-shadow: 0 0 30px rgba(127, 255, 0, 0.5);
+    animation: popupFade 0.3s ease;
+}
+
+.popup-box i {
+    font-size: 48px;
+    color: #7fff00;
+    margin-bottom: 10px;
+}
+
+.popup-box button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(127, 255, 0, 0.8); /* semi-transparent green */
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Popup animation */
+@keyframes popupFade {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    #contact {
+        padding: 30px 15px;
+        min-height: 100vh;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+    }
+
+    .contact-form button[type="submit"] {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* ---------- Navigation ---------- */
+
+/* ---------- Navigation (ALWAYS FIXED) ---------- */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    background: #000;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 10000;   /* above Vanta & content */
+}
+html {
+    scroll-padding-top: 60px;
+}
+
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+nav ul li {
+    display: inline;
+    padding: 0 15px;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: inline-block;
+    padding: 10px 0;
+    position: relative;
+}
+nav ul li a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #7fff00;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+nav ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+/* ---------- Slideshow Styles ---------- */
+.slideshow-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    min-height: 300px;
+}
+
+/* Only slides are absolute inside a dedicated wrapper */
+
+
+#home .slides-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+#profile .slides-wrapper {
+    position: relative;
+}
+
+
+/* Only slideshow in HOME should be absolute */
+
+/* Profile slides should behave normally */
+#profile .slide {
+    position: relative;
+    display: none;
+}
+
+#profile .slide.active {
+    display: block;
+}
+
+
+.slide.active {
+    position: relative;     /* 🔥 THIS is the key */
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#profile {
+    overflow: visible;
+}
+
+/* Keep buttons and socials outside of the absolute stacking */
+.role, .social-icons, #next-slide {
+    position: relative;
+    z-index: 5; /* above slides */
+}
 /* ---------- Responsive ---------- */
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
+    .container {
+        padding: 60px 15px 40px;
+        gap: 60px;
+    }
+
     .profile-info {
         flex-direction: column;
         gap: 20px;
     }
 
+    .profile-img img {
+        max-width: 180px;
+        width: 60vw;
+    }
+
+    .content {
+        max-width: 90%;
+    }
+
+    .projects-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        padding: 10px;
+    }
+
     .project-box {
-        width: 90vw;
-        max-width: 400px;
+        width: 90%;
+        max-width: 350px;
     }
 }
 
-/* ---------- Web Developer Box ---------- */
-.role {
-    display: inline-block; /* allow padding and border */
-    padding: 8px 16px;
-    border: 2px solid #7fff00;
-    border-radius: 8px;
-    color: #7fff00;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    cursor: default;
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+ h1 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 900;
+    margin: 0 0 20px;
+    letter-spacing: 2px;
 }
 
-/* Glow effect on hover */
-.role:hover {
-    color: #fff; /* optional: brighten text */
-    box-shadow:
-        0 0 10px #7fff00,
-        0 0 20px #7fff00,
-        0 0 30px #7fff00,
-        0 0 40px #7fff00;
-    border-color: #7fff00;
+.desc {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    max-width: 65ch;
+    margin: 24px auto 0;
+    color: #ccc;
+    text-align: center;
+}
+
+    .role {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+        gap: 8px;
+    }
+
+    .profile-img img {
+        max-width: 140px;
+        width: 70vw;
+    }
+
+    .project-box {
+        width: 95%;
+        max-width: 300px;
+    }
+}
+
+/* Popup Overlay */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Popup Box */
+.popup-box {
+  background: transparent;
+  color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 90%;
+  max-width: 360px;
+  box-shadow: 0 0 30px rgba(127, 255, 0, 0.5);
+  animation: popupFade 0.3s ease;
+}
+
+.popup-box i {
+  font-size: 48px;
+  color: #7fff00;
+  margin-bottom: 10px;
+}
+
+.popup-box button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #7fff00;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+@keyframes popupFade {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/* ============================= */
+/*          Typing Effect        */
+/* ============================= */
+
+/* All typing text green */
+/* Typing animation styling */
+.typing {
+    white-space: pre-wrap;      /* preserves spaces and line breaks */
+    word-wrap: break-word;      /* break long words if needed */
+    overflow: hidden;
+    display: inline-block;      /* allows cursor animation */
+    max-width: 100%;            /* prevent overflowing container */
+    line-height: 1.5;           /* easier to read */
+}
+
+
+/* Cursor visible while typing */
+.typing.typing-cursor::after {
+    content: "|";
+    display: inline-block;
+    margin-left: 2px;
+    animation: blink 0.7s infinite;
+    color: #7fff00;             /* green cursor */
+}
+
+/* Stop cursor after typing */
+.typing.done::after {
+    content: "";
+    animation: none;
+}
+
+/* Blinking animation */
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+}
+
+/* Support for <li> bullets (Skills, Experience, Certification) */
+#profile li.typing {
+    display: list-item;         /* keeps bullet */
+}
+
+/* Cursor for bullets while typing */
+#profile li.typing.typing-cursor::after {
+    content: "|";
+    display: inline-block;
+    margin-left: 4px;
+    animation: blink 0.7s infinite;
+    color: #7fff00;
+}
+
+/* Stop cursor for bullets */
+#profile li.typing.done::after {
+    content: "";
+    animation: none;
+}
+
+/* ---------- Name Single-Line Responsive ---------- */
+.name-line {
+    white-space: normal;         /* allow wrapping on very small screens */
+    overflow: visible;           /* show all text */
+    text-overflow: clip;         /* remove ellipsis */
+    font-size: clamp(1.6rem, 4vw, 2.2rem); /* responsive font */
+    width: 100%;
+    text-align: center;
+}
+@media (max-width: 400px) {
+    .name-line {
+        white-space: normal; /* allow wrapping */
+        font-size: 1.4rem;   /* shrink font */
+    }
+}
+
+/* ---------- Mobile padding override ---------- */
+@media (max-width: 768px) {
+    .profile-info {
+        padding-top: 40px;
+    }
+}
+/* ---------- Desktop padding override ---------- */
+@media (min-width: 1024px) {
+    .container {
+        padding: 100px 20px 60px;
+    }
+}
+
+#profile ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+/* ---------- PROFILE TABS & SLIDES RESPONSIVE FIX ---------- */
+#profile .profile-content {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+#profile .tab-content {
+    width: 100%;
+    max-width: 100%;
+}
+
+#profile .slide {
+    display: none;      /* hidden by default */
+    width: 100%;
+    text-align: left;
+    margin: 0 auto;
+}
+
+#profile .slide.active {
+    display: block;
+}
+
+/* Tabs wrap nicely on small screens */
+.tab-links {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.tab-link {
+    flex: 1 1 auto;
+    text-align: center;
+    min-width: 120px;
+}
+
+/* Shrink text for very small screens */
+@media (max-width: 768px) {
+    #profile .slide ul li.typing {
+        font-size: 0.95rem;
+    }
+
+    .tab-link {
+        font-size: 0.95rem;
+        padding: 6px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    #profile .slide ul li.typing {
+        font-size: 0.9rem;
+        padding-left: 15px;
+    }
+
+    .tab-link {
+        font-size: 0.85rem;
+        padding: 4px 6px;
+    }
+}
+/* ---------- Center all Profile Slide Text ---------- */
+#profile .slide,
+#profile .slide h3,
+#profile .slide p,
+#profile .slide ul,
+#profile .slide li.typing {
+    text-align: center !important; /* center everything inside slides */
+    margin-left: auto;
+    margin-right: auto;
+       max-width: 85%;          /* keeps text from stretching too wide */
+    word-break: break-word;  /* prevent overflow on long words */
+    line-height: 1.6; 
+}
+
+/* Optional: make bullets appear inside the text block for centering */
+#profile .slide ul {
+    padding-left: 0;
+    list-style-position: inside;
+}
+/* Move Download CV + Social Icons upward */
+.role {
+    margin-top: -20px;   /* reduce space above button */
+}
+
+.social-icons {
+    margin-top: 10px;   /* reduce space above icons */
+}
+
+#home,
+#profile,
+#projects,
+#contact {
+    background: transparent !important;
+}
+/* Fix anchor scroll under fixed nav */
+section {
+    scroll-margin-top: 80px;
+}
+#home,
+#profile,
+#projects,
+#contact {
+    scroll-margin-top: 80px;
 }
 

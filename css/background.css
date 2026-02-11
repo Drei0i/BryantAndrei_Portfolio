@@ -1,0 +1,62 @@
+html {
+    background: #000;
+}
+
+
+/* Make all main sections black /* Navbar black background */
+nav {
+    background: #000;
+}
+
+/* Project boxes black */
+.project-box {
+    background: #111; /* slightly lighter black for contrast */
+}
+
+/* Contact section */
+#contact {
+    background: #111; /* dark black background */
+}
+
+/* Forms, inputs, textareas, buttons */
+.contact-form input,
+.contact-form textarea,
+button[type="submit"],
+.popup-box {
+    background: #111; /* black so gradient/previous colors are removed */
+    color: #fff; /* ensure text is visible */
+}
+
+/* Optional: semi-transparent neon highlights still work */
+.project-box:hover,
+button[type="submit"]:hover,
+.contact-info a:hover {
+    box-shadow: 0 0 10px #7fff00, 0 0 20px #7fff00, 0 0 30px #7fff00;
+}
+
+/* Make Vanta background sit behind everything */
+.vanta-canvas {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1 !important;   /* push fully behind */
+  pointer-events: none;     /* prevent interaction blocking */
+}
+
+
+
+/* Keep site content above Vanta */
+
+/* Vanta Full-Screen Background */
+#vanta-bg {
+    position: fixed;      /* stays fixed even on scroll */
+    top: 0;
+    left: 0;
+    width: 100vw;         /* full viewport width */
+    height: 100vh;        /* full viewport height */
+    z-index: -1;          /* behind everything */
+    pointer-events: none; /* allow clicks through it */
+}
+
